@@ -1,0 +1,220 @@
+/* Vertical Progress Bar CSS Override - Left Side Layout */
+
+/* Main container - position on left side of content */
+.sd-progress-buttons__container {
+  position: relative !important;
+  width: 280px !important;
+  height: auto !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  float: left !important;
+  margin-right: 40px !important;
+}
+
+/* Hide horizontal navigation buttons */
+.sd-progress-buttons__image-button-left,
+.sd-progress-buttons__image-button-right {
+  display: none !important;
+}
+
+/* List container adjustments */
+.sd-progress-buttons__list-container {
+  width: 100% !important;
+  overflow: visible !important;
+}
+
+/* Main list styling for vertical layout */
+.sd-progress-buttons__list {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none !important;
+  gap: 0 !important;
+}
+
+/* Individual list elements */
+.sd-progress-buttons__list li {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  position: relative !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 0 24px 0 !important;
+  min-height: 60px !important;
+}
+
+/* Remove padding from last item */
+.sd-progress-buttons__list li:last-child {
+  padding-bottom: 0 !important;
+}
+
+/* Circle/Button styling */
+.sd-progress-buttons__button {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  background: #e5e7eb !important;
+  border: 2px solid #e5e7eb !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  color: #6b7280 !important;
+  transition: all 0.3s ease !important;
+  flex-shrink: 0 !important;
+  margin-right: 16px !important;
+  z-index: 2 !important;
+  order: 1 !important;
+}
+
+/* Current step styling */
+.sd-progress-buttons__list-element--current .sd-progress-buttons__button {
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+  color: white !important;
+  box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.2) !important;
+}
+
+/* Completed steps styling */
+.sd-progress-buttons__list-element--completed .sd-progress-buttons__button {
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+  color: white !important;
+}
+
+/* Hide all button content including numbers */
+.sd-progress-buttons__button-background,
+.sd-progress-buttons__button-content,
+.sd-progress-buttons__button span {
+  display: none !important;
+}
+
+/* Connector line between steps */
+.sd-progress-buttons__connector {
+  position: absolute !important;
+  left: 16px !important;
+  top: 32px !important;
+  width: 2px !important;
+  height: 40px !important;
+  background: #e5e7eb !important;
+  z-index: 1 !important;
+}
+
+/* Hide connector for the last item */
+.sd-progress-buttons__list li:last-child .sd-progress-buttons__connector {
+  display: none !important;
+}
+
+/* Current step connector styling */
+.sd-progress-buttons__list-element--current .sd-progress-buttons__connector {
+  background-color: #2563eb !important;
+}
+
+/* Completed step connector styling */
+.sd-progress-buttons__list-element--completed .sd-progress-buttons__connector {
+  background-color: #2563eb !important;
+}
+
+/* Step titles */
+.sd-progress-buttons__page-title {
+  margin-left: 12px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #374151 !important;
+  flex: 1 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.4 !important;
+  order: 2 !important;
+}
+
+/* Current step title styling */
+.sd-progress-buttons__list-element--current .sd-progress-buttons__page-title {
+  color: #2563eb !important;
+  font-weight: 600 !important;
+}
+
+/* Completed step title styling */
+.sd-progress-buttons__list-element--completed .sd-progress-buttons__page-title {
+  color: #2563eb !important;
+  font-weight: 500 !important;
+}
+
+/* Step title text styling */
+.sd-progress-buttons__page-title .sv-string-viewer {
+  font-weight: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
+  display: block !important;
+}
+
+/* Hide page description */
+.sd-progress-buttons__page-description {
+  display: none !important;
+}
+
+/* Parent container adjustments */
+.sv-components-column.sv-components-container-center {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 40px !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sd-progress-buttons__container {
+    width: 240px !important;
+    margin-right: 20px !important;
+  }
+  
+  .sd-progress-buttons__page-title .sv-string-viewer {
+    font-size: 14px !important;
+  }
+  
+  .sd-progress-buttons__button {
+    width: 28px !important;
+    height: 28px !important;
+    margin-right: 12px !important;
+  }
+  
+  .sd-progress-buttons__connector {
+    left: 14px !important;
+    top: 28px !important;
+  }
+}
+
+/* Optional: Add smooth transitions */
+.sd-progress-buttons__button,
+.sd-progress-buttons__page-title .sv-string-viewer {
+  transition: all 0.3s ease !important;
+}
+
+/* Optional: Add hover effects */
+.sd-progress-buttons__list li:hover .sd-progress-buttons__button {
+  transform: scale(1.05) !important;
+}
+
+.sd-progress-buttons__list li:hover .sd-progress-buttons__page-title .sv-string-viewer {
+  color: #2563eb !important;
+}
+
+
+.sd-header__text .sd-title .sv-string-viewer {
+  color: #2563eb !important;
+  font-size: 28px !important;
+  font-weight: bold !important;
+} 
+
+.sd-body.sd-body--static {
+  margin-top: -370px !important;
+}
+
+.sd-btn.sd-navigation__next-btn{
+    color : #2563eb !important;
+}
