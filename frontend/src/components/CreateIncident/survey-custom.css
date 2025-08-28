@@ -1,15 +1,26 @@
-/* Vertical Progress Bar CSS Override - Left Side Layout */
+/* Survey.js Custom CSS - Clean Design with Bordered Sidebar */
 
-/* Main container - position on left side of content */
-.sd-progress-buttons__container {
-  position: relative !important;
-  width: 280px !important;
-  height: auto !important;
-  background: transparent !important;
+/* Main survey container */
+.sv-root {
+  background: #f8fafc !important;
+  min-height: 100vh !important;
   padding: 0 !important;
   margin: 0 !important;
-  float: left !important;
-  margin-right: 40px !important;
+}
+
+/* Progress bar container - Left sidebar */
+.sd-progress-buttons__container {
+  position: fixed !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 300px !important;
+  height: 100vh !important;
+  background: #ffffff !important;
+  border-right: 1px solid #e2e8f0 !important;
+  padding: 2rem 0 !important;
+  margin: 0 !important;
+  z-index: 10 !important;
+  overflow-y: auto !important;
 }
 
 /* Hide horizontal navigation buttons */
@@ -18,25 +29,26 @@
   display: none !important;
 }
 
-/* List container adjustments */
+/* List container */
 .sd-progress-buttons__list-container {
   width: 100% !important;
+  height: 100% !important;
   overflow: visible !important;
 }
 
-/* Main list styling for vertical layout */
+/* Progress list - vertical layout */
 .sd-progress-buttons__list {
   display: flex !important;
   flex-direction: column !important;
   align-items: flex-start !important;
   width: 100% !important;
-  padding: 0 !important;
+  padding: 0 2rem !important;
   margin: 0 !important;
   list-style: none !important;
   gap: 0 !important;
 }
 
-/* Individual list elements */
+/* Individual step items */
 .sd-progress-buttons__list li {
   display: flex !important;
   flex-direction: row !important;
@@ -44,114 +56,123 @@
   position: relative !important;
   width: 100% !important;
   margin: 0 !important;
-  padding: 0 0 24px 0 !important;
+  padding: 1rem 0 !important;
   min-height: 60px !important;
+  cursor: pointer !important;
 }
 
-/* Remove padding from last item */
-.sd-progress-buttons__list li:last-child {
-  padding-bottom: 0 !important;
+/* Step connector lines */
+.sd-progress-buttons__connector {
+  position: absolute !important;
+  left: 15px !important;
+  top: 50px !important;
+  width: 2px !important;
+  height: 40px !important;
+  background: #e2e8f0 !important;
+  z-index: 1 !important;
 }
 
-/* Circle/Button styling */
+/* Hide connector for last item */
+.sd-progress-buttons__list li:last-child .sd-progress-buttons__connector {
+  display: none !important;
+}
+
+/* Step number circles */
 .sd-progress-buttons__button {
   width: 32px !important;
   height: 32px !important;
   border-radius: 50% !important;
-  background: #e5e7eb !important;
-  border: 2px solid #e5e7eb !important;
+  background: #f1f5f9 !important;
+  border: 2px solid #e2e8f0 !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   position: relative !important;
-  color: #6b7280 !important;
-  transition: all 0.3s ease !important;
+  color: #64748b !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
   flex-shrink: 0 !important;
-  margin-right: 16px !important;
+  margin-right: 1rem !important;
   z-index: 2 !important;
   order: 1 !important;
+  transition: all 0.3s ease !important;
 }
 
 /* Current step styling */
 .sd-progress-buttons__list-element--current .sd-progress-buttons__button {
-  background: #2563eb !important;
-  border-color: #2563eb !important;
+  background: #059669 !important;
+  border-color: #059669 !important;
   color: white !important;
-  box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.2) !important;
 }
 
-/* Completed steps styling */
+.sd-progress-buttons__list-element--current .sd-progress-buttons__connector {
+  background: #059669 !important;
+}
+
+/* Completed step styling */
 .sd-progress-buttons__list-element--completed .sd-progress-buttons__button {
-  background: #2563eb !important;
-  border-color: #2563eb !important;
+  background: #059669 !important;
+  border-color: #059669 !important;
   color: white !important;
 }
 
-/* Hide all button content including numbers */
+.sd-progress-buttons__list-element--completed .sd-progress-buttons__connector {
+  background: #059669 !important;
+}
+
+/* Hide default button content */
 .sd-progress-buttons__button-background,
 .sd-progress-buttons__button-content,
 .sd-progress-buttons__button span {
   display: none !important;
 }
 
-/* Connector line between steps */
-.sd-progress-buttons__connector {
+/* Add step numbers */
+.sd-progress-buttons__list {
+  counter-reset: step-counter !important;
+}
+
+.sd-progress-buttons__list li {
+  counter-increment: step-counter !important;
+}
+
+.sd-progress-buttons__button::after {
+  content: counter(step-counter) !important;
   position: absolute !important;
-  left: 16px !important;
-  top: 32px !important;
-  width: 2px !important;
-  height: 40px !important;
-  background: #e5e7eb !important;
-  z-index: 1 !important;
-}
-
-/* Hide connector for the last item */
-.sd-progress-buttons__list li:last-child .sd-progress-buttons__connector {
-  display: none !important;
-}
-
-/* Current step connector styling */
-.sd-progress-buttons__list-element--current .sd-progress-buttons__connector {
-  background-color: #2563eb !important;
-}
-
-/* Completed step connector styling */
-.sd-progress-buttons__list-element--completed .sd-progress-buttons__connector {
-  background-color: #2563eb !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  line-height: 1 !important;
 }
 
 /* Step titles */
 .sd-progress-buttons__page-title {
-  margin-left: 12px !important;
-  font-size: 14px !important;
-  font-weight: 500 !important;
-  color: #374151 !important;
   flex: 1 !important;
   margin: 0 !important;
   padding: 0 !important;
-  line-height: 1.4 !important;
   order: 2 !important;
 }
 
-/* Current step title styling */
-.sd-progress-buttons__list-element--current .sd-progress-buttons__page-title {
-  color: #2563eb !important;
+.sd-progress-buttons__page-title .sv-string-viewer {
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+  color: #64748b !important;
+  display: block !important;
+}
+
+/* Current step title */
+.sd-progress-buttons__list-element--current .sd-progress-buttons__page-title .sv-string-viewer {
+  color: #059669 !important;
   font-weight: 600 !important;
 }
 
-/* Completed step title styling */
-.sd-progress-buttons__list-element--completed .sd-progress-buttons__page-title {
-  color: #2563eb !important;
+/* Completed step title */
+.sd-progress-buttons__list-element--completed .sd-progress-buttons__page-title .sv-string-viewer {
+  color: #059669 !important;
   font-weight: 500 !important;
-}
-
-/* Step title text styling */
-.sd-progress-buttons__page-title .sv-string-viewer {
-  font-weight: inherit !important;
-  font-size: inherit !important;
-  line-height: inherit !important;
-  color: inherit !important;
-  display: block !important;
 }
 
 /* Hide page description */
@@ -159,62 +180,182 @@
   display: none !important;
 }
 
-/* Parent container adjustments */
+/* Main content area */
 .sv-components-column.sv-components-container-center {
-  display: flex !important;
-  align-items: flex-start !important;
-  gap: 40px !important;
+  margin-left: 300px !important;
+  padding: 2rem !important;
+  min-height: 100vh !important;
+  background: #f8fafc !important;
 }
 
-/* Responsive adjustments */
+/* Survey body */
+.sd-body {
+  background: white !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1) !important;
+  padding: 2rem !important;
+  margin: 0 !important;
+}
+
+/* Survey header */
+.sd-header {
+  background: white !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  padding: 1.5rem 2rem !important;
+  margin: -2rem -2rem 2rem -2rem !important;
+  border-radius: 8px 8px 0 0 !important;
+}
+
+.sd-header__text .sd-title .sv-string-viewer {
+  color: #1e293b !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  margin: 0 !important;
+}
+
+.sd-header__text .sd-description .sv-string-viewer {
+  color: #64748b !important;
+  font-size: 16px !important;
+  margin-top: 0.5rem !important;
+}
+
+/* Form elements */
+.sv-question {
+  margin-bottom: 1.5rem !important;
+}
+
+.sv-question__title {
+  color: #374151 !important;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.sv-text,
+.sv-comment,
+.sv-dropdown-popup,
+.sv-selectbase {
+  border: 1px solid #d1d5db !important;
+  border-radius: 6px !important;
+  padding: 0.75rem !important;
+  font-size: 14px !important;
+  transition: border-color 0.2s ease !important;
+}
+
+.sv-text:focus,
+.sv-comment:focus,
+.sv-dropdown-popup:focus,
+.sv-selectbase:focus {
+  outline: none !important;
+  border-color: #059669 !important;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1) !important;
+}
+
+/* Checkbox and radio styling */
+.sv-checkbox,
+.sv-radiogroup {
+  margin-top: 0.5rem !important;
+}
+
+.sv-checkbox__item,
+.sv-radiogroup__item {
+  margin-bottom: 0.75rem !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.sv-checkbox__item input,
+.sv-radiogroup__item input {
+  margin-right: 0.75rem !important;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+/* Navigation buttons */
+.sv-action-bar {
+  margin-top: 2rem !important;
+  padding-top: 1.5rem !important;
+  border-top: 1px solid #e2e8f0 !important;
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+.sv-btn {
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  transition: all 0.2s ease !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+
+.sv-btn--navigation-next {
+  background: #059669 !important;
+  color: white !important;
+}
+
+.sv-btn--navigation-next:hover {
+  background: #047857 !important;
+}
+
+.sv-btn--navigation-prev {
+  background: #f8fafc !important;
+  color: #64748b !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.sv-btn--navigation-prev:hover {
+  background: #f1f5f9 !important;
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
   .sd-progress-buttons__container {
-    width: 240px !important;
-    margin-right: 20px !important;
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    border-right: none !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    padding: 1rem !important;
   }
   
-  .sd-progress-buttons__page-title .sv-string-viewer {
-    font-size: 14px !important;
+  .sd-progress-buttons__list {
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    padding: 0 1rem !important;
   }
   
-  .sd-progress-buttons__button {
-    width: 28px !important;
-    height: 28px !important;
-    margin-right: 12px !important;
+  .sd-progress-buttons__list li {
+    flex-direction: column !important;
+    min-width: 120px !important;
+    text-align: center !important;
+    padding: 0.5rem !important;
   }
   
   .sd-progress-buttons__connector {
-    left: 14px !important;
-    top: 28px !important;
+    display: none !important;
+  }
+  
+  .sv-components-column.sv-components-container-center {
+    margin-left: 0 !important;
+    padding: 1rem !important;
   }
 }
 
-/* Optional: Add smooth transitions */
-.sd-progress-buttons__button,
-.sd-progress-buttons__page-title .sv-string-viewer {
-  transition: all 0.3s ease !important;
+/* Error states */
+.sv-question--error .sv-question__title {
+  color: #dc2626 !important;
 }
 
-/* Optional: Add hover effects */
-.sd-progress-buttons__list li:hover .sd-progress-buttons__button {
-  transform: scale(1.05) !important;
+.sv-question--error .sv-text,
+.sv-question--error .sv-comment,
+.sv-question--error .sv-dropdown-popup {
+  border-color: #dc2626 !important;
 }
 
-.sd-progress-buttons__list li:hover .sd-progress-buttons__page-title .sv-string-viewer {
-  color: #2563eb !important;
-}
-
-
-.sd-header__text .sd-title .sv-string-viewer {
-  color: #2563eb !important;
-  font-size: 28px !important;
-  font-weight: bold !important;
-} 
-
-.sd-body.sd-body--static {
-  margin-top: -370px !important;
-}
-
-.sd-btn.sd-navigation__next-btn{
-    color : #2563eb !important;
+/* Required field indicator */
+.sv-question__title .sv-question__required-text {
+  color: #dc2626 !important;
+  margin-left: 0.25rem !important;
 }
