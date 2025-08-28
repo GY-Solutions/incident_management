@@ -1,66 +1,15 @@
-/* Survey.js Custom Styling - Clean Medical Form Design */
+/* Vertical Progress Bar CSS Override - Left Side Layout */
 
-/* Import Survey.js default styles first */
-@import 'survey-core/survey-core.css';
-
-/* Root container styling */
-.sv-root {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
-  background-color: #f8fafc !important;
-  min-height: 100vh !important;
+/* Main container - position on left side of content */
+.sd-progress-buttons__container {
+  position: relative !important;
+  width: 280px !important;
+  height: auto !important;
+  background: transparent !important;
   padding: 0 !important;
   margin: 0 !important;
-}
-
-/* Main survey container */
-.sv-container-modern {
-  max-width: 100% !important;
-  margin: 0 !important;
-  background: transparent !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  overflow: visible !important;
-  display: flex !important;
-  min-height: 100vh !important;
-}
-
-/* Header styling */
-.sv-header {
-  background: white !important;
-  color: #1f2937 !important;
-  padding: 2rem !important;
-  text-align: left !important;
-  border-bottom: 1px solid #e5e7eb !important;
-  margin: 0 !important;
-  width: 100% !important;
-}
-
-.sv-header .sv-title {
-  font-size: 2rem !important;
-  font-weight: 700 !important;
-  margin: 0 0 0.5rem 0 !important;
-  color: #059669 !important;
-}
-
-.sv-header .sv-description {
-  font-size: 1rem !important;
-  color: #6b7280 !important;
-  margin: 0 !important;
-}
-
-/* Progress bar container - Left sidebar */
-.sd-progress-buttons__container {
-  position: fixed !important;
-  left: 0 !important;
-  top: 0 !important;
-  width: 300px !important;
-  height: 100vh !important;
-  background: white !important;
-  border-right: 1px solid #e5e7eb !important;
-  padding: 2rem 1.5rem !important;
-  z-index: 1000 !important;
-  overflow-y: auto !important;
-  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05) !important;
+  float: left !important;
+  margin-right: 40px !important;
 }
 
 /* Hide horizontal navigation buttons */
@@ -85,7 +34,6 @@
   margin: 0 !important;
   list-style: none !important;
   gap: 0 !important;
-  counter-reset: step-counter !important;
 }
 
 /* Individual list elements */
@@ -96,9 +44,8 @@
   position: relative !important;
   width: 100% !important;
   margin: 0 !important;
-  padding: 0 0 2rem 0 !important;
+  padding: 0 0 24px 0 !important;
   min-height: 60px !important;
-  counter-increment: step-counter !important;
 }
 
 /* Remove padding from last item */
@@ -108,64 +55,52 @@
 
 /* Circle/Button styling */
 .sd-progress-buttons__button {
-  width: 40px !important;
-  height: 40px !important;
+  width: 32px !important;
+  height: 32px !important;
   border-radius: 50% !important;
-  background: #f3f4f6 !important;
+  background: #e5e7eb !important;
   border: 2px solid #e5e7eb !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   position: relative !important;
-  color: #9ca3af !important;
+  color: #6b7280 !important;
   transition: all 0.3s ease !important;
   flex-shrink: 0 !important;
-  margin-right: 1rem !important;
+  margin-right: 16px !important;
   z-index: 2 !important;
   order: 1 !important;
-  font-weight: 600 !important;
-  font-size: 14px !important;
 }
 
 /* Current step styling */
 .sd-progress-buttons__list-element--current .sd-progress-buttons__button {
-  background: #059669 !important;
-  border-color: #059669 !important;
+  background: #2563eb !important;
+  border-color: #2563eb !important;
   color: white !important;
-  box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.2) !important;
+  box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.2) !important;
 }
 
 /* Completed steps styling */
 .sd-progress-buttons__list-element--completed .sd-progress-buttons__button {
-  background: #059669 !important;
-  border-color: #059669 !important;
+  background: #2563eb !important;
+  border-color: #2563eb !important;
   color: white !important;
 }
 
-/* Add step numbers */
-.sd-progress-buttons__button::after {
-  content: counter(step-counter) !important;
-  position: relative !important;
-  z-index: 3 !important;
-  font-weight: 600 !important;
-  font-size: 14px !important;
-  line-height: 1 !important;
-}
-
-/* Hide all button content including default elements */
+/* Hide all button content including numbers */
 .sd-progress-buttons__button-background,
 .sd-progress-buttons__button-content,
-.sd-progress-buttons__button span:not(::after) {
+.sd-progress-buttons__button span {
   display: none !important;
 }
 
 /* Connector line between steps */
 .sd-progress-buttons__connector {
   position: absolute !important;
-  left: 20px !important;
-  top: 40px !important;
+  left: 16px !important;
+  top: 32px !important;
   width: 2px !important;
-  height: calc(100% - 20px) !important;
+  height: 40px !important;
   background: #e5e7eb !important;
   z-index: 1 !important;
 }
@@ -177,42 +112,46 @@
 
 /* Current step connector styling */
 .sd-progress-buttons__list-element--current .sd-progress-buttons__connector {
-  background-color: #059669 !important;
+  background-color: #2563eb !important;
 }
 
 /* Completed step connector styling */
 .sd-progress-buttons__list-element--completed .sd-progress-buttons__connector {
-  background-color: #059669 !important;
+  background-color: #2563eb !important;
 }
 
 /* Step titles */
 .sd-progress-buttons__page-title {
+  margin-left: 12px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #374151 !important;
+  flex: 1 !important;
   margin: 0 !important;
   padding: 0 !important;
   line-height: 1.4 !important;
   order: 2 !important;
-  flex: 1 !important;
-}
-
-/* Step title text styling */
-.sd-progress-buttons__page-title .sv-string-viewer {
-  font-weight: 500 !important;
-  font-size: 15px !important;
-  line-height: 1.4 !important;
-  color: #6b7280 !important;
-  display: block !important;
 }
 
 /* Current step title styling */
-.sd-progress-buttons__list-element--current .sd-progress-buttons__page-title .sv-string-viewer {
-  color: #059669 !important;
+.sd-progress-buttons__list-element--current .sd-progress-buttons__page-title {
+  color: #2563eb !important;
   font-weight: 600 !important;
 }
 
 /* Completed step title styling */
-.sd-progress-buttons__list-element--completed .sd-progress-buttons__page-title .sv-string-viewer {
-  color: #059669 !important;
+.sd-progress-buttons__list-element--completed .sd-progress-buttons__page-title {
+  color: #2563eb !important;
   font-weight: 500 !important;
+}
+
+/* Step title text styling */
+.sd-progress-buttons__page-title .sv-string-viewer {
+  font-weight: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
+  display: block !important;
 }
 
 /* Hide page description */
@@ -220,343 +159,62 @@
   display: none !important;
 }
 
-/* Main content area adjustments */
+/* Parent container adjustments */
 .sv-components-column.sv-components-container-center {
-  margin-left: 300px !important;
-  padding: 0 !important;
-  max-width: calc(100% - 300px) !important;
-  min-height: 100vh !important;
-  background: white !important;
-}
-
-/* Body content styling */
-.sv-body {
-  padding: 3rem !important;
-  background: white !important;
-  min-height: calc(100vh - 140px) !important;
-}
-
-/* Page styling */
-.sv-page {
-  margin-bottom: 2rem !important;
-  max-width: 800px !important;
-}
-
-/* Page title styling */
-.sv-page .sv-page__title {
-  font-size: 1.875rem !important;
-  font-weight: 700 !important;
-  color: #1f2937 !important;
-  margin-bottom: 0.5rem !important;
-}
-
-.sv-page .sv-page__description {
-  font-size: 1rem !important;
-  color: #6b7280 !important;
-  margin-bottom: 2rem !important;
-}
-
-/* Question styling */
-.sv-question {
-  margin-bottom: 2rem !important;
-  padding: 0 !important;
-  background: transparent !important;
-  border-radius: 0 !important;
-  border: none !important;
-}
-
-.sv-question__title {
-  font-size: 1rem !important;
-  font-weight: 600 !important;
-  color: #1f2937 !important;
-  margin-bottom: 0.5rem !important;
-  line-height: 1.5 !important;
-}
-
-.sv-question__description {
-  font-size: 0.875rem !important;
-  color: #6b7280 !important;
-  margin-bottom: 1rem !important;
-  line-height: 1.5 !important;
-}
-
-/* Input styling */
-.sv-text,
-.sv-comment textarea,
-.sv-dropdown select {
-  width: 100% !important;
-  padding: 0.75rem !important;
-  border: 1px solid #d1d5db !important;
-  border-radius: 6px !important;
-  font-size: 1rem !important;
-  transition: all 0.2s ease !important;
-  background: white !important;
-  font-family: inherit !important;
-}
-
-.sv-text:focus,
-.sv-comment textarea:focus,
-.sv-dropdown select:focus {
-  outline: none !important;
-  border-color: #059669 !important;
-  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1) !important;
-}
-
-/* Textarea specific styling */
-.sv-comment textarea {
-  min-height: 120px !important;
-  resize: vertical !important;
-}
-
-/* Checkbox and radio styling */
-.sv-checkbox,
-.sv-radiogroup {
-  margin-top: 0.5rem !important;
-}
-
-.sv-checkbox__item,
-.sv-radiogroup__item {
-  margin-bottom: 0.75rem !important;
   display: flex !important;
   align-items: flex-start !important;
-  padding: 0.5rem !important;
-  border-radius: 6px !important;
-  transition: background-color 0.2s ease !important;
+  gap: 40px !important;
 }
 
-.sv-checkbox__item:hover,
-.sv-radiogroup__item:hover {
-  background-color: #f9fafb !important;
-}
-
-.sv-checkbox__item input,
-.sv-radiogroup__item input {
-  margin-right: 0.75rem !important;
-  margin-top: 0.125rem !important;
-  width: 1.25rem !important;
-  height: 1.25rem !important;
-  accent-color: #059669 !important;
-}
-
-.sv-checkbox__item label,
-.sv-radiogroup__item label {
-  font-size: 1rem !important;
-  color: #374151 !important;
-  cursor: pointer !important;
-  line-height: 1.5 !important;
-  flex: 1 !important;
-}
-
-/* Navigation buttons */
-.sv-navigation {
-  padding: 2rem 3rem !important;
-  background: white !important;
-  border-top: 1px solid #e5e7eb !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-}
-
-.sv-btn {
-  padding: 0.75rem 2rem !important;
-  border-radius: 6px !important;
-  font-weight: 600 !important;
-  font-size: 1rem !important;
-  transition: all 0.2s ease !important;
-  border: none !important;
-  cursor: pointer !important;
-  font-family: inherit !important;
-}
-
-.sv-navigation__prev-btn {
-  background: #f3f4f6 !important;
-  color: #374151 !important;
-  border: 1px solid #d1d5db !important;
-}
-
-.sv-navigation__prev-btn:hover {
-  background: #e5e7eb !important;
-}
-
-.sv-navigation__next-btn,
-.sv-navigation__complete-btn {
-  background: #059669 !important;
-  color: white !important;
-}
-
-.sv-navigation__next-btn:hover,
-.sv-navigation__complete-btn:hover {
-  background: #047857 !important;
-}
-
-/* Error styling */
-.sv-question__erros {
-  color: #dc2626 !important;
-  font-size: 0.875rem !important;
-  margin-top: 0.5rem !important;
-}
-
-/* Required indicator */
-.sv-question__title .sv-question__required-text {
-  color: #dc2626 !important;
-  margin-left: 0.25rem !important;
-}
-
-/* Date input styling */
-.sv-date input {
-  width: 100% !important;
-  padding: 0.75rem !important;
-  border: 1px solid #d1d5db !important;
-  border-radius: 6px !important;
-  font-size: 1rem !important;
-  transition: all 0.2s ease !important;
-  background: white !important;
-  font-family: inherit !important;
-}
-
-.sv-date input:focus {
-  outline: none !important;
-  border-color: #059669 !important;
-  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1) !important;
-}
-
-/* Success state */
-.sv-completedpage {
-  text-align: center !important;
-  padding: 3rem !important;
-  background: #f0fdf4 !important;
-  border-radius: 8px !important;
-  border: 1px solid #bbf7d0 !important;
-  max-width: 600px !important;
-  margin: 2rem auto !important;
-}
-
-.sv-completedpage h3 {
-  color: #166534 !important;
-  font-size: 1.5rem !important;
-  margin-bottom: 1rem !important;
-}
-
-/* Responsive design */
-@media (max-width: 1024px) {
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .sd-progress-buttons__container {
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
-    transform: none !important;
-    width: 100% !important;
-    height: auto !important;
-    margin-bottom: 0 !important;
-    padding: 1rem !important;
-    border-right: none !important;
-    border-bottom: 1px solid #e5e7eb !important;
+    width: 240px !important;
+    margin-right: 20px !important;
   }
   
-  .sv-components-column.sv-components-container-center {
-    margin-left: 0 !important;
-    max-width: 100% !important;
-  }
-  
-  .sd-progress-buttons__list {
-    flex-direction: row !important;
-    overflow-x: auto !important;
-    padding-bottom: 1rem !important;
-    gap: 1rem !important;
-  }
-  
-  .sd-progress-buttons__list li {
-    flex-direction: column !important;
-    min-width: 120px !important;
-    text-align: center !important;
-    padding-right: 0 !important;
-    padding-bottom: 0 !important;
-    flex-shrink: 0 !important;
-  }
-  
-  .sd-progress-buttons__connector {
-    left: 50% !important;
-    top: 40px !important;
-    width: calc(100% - 40px) !important;
-    height: 2px !important;
-    transform: translateX(-50%) !important;
+  .sd-progress-buttons__page-title .sv-string-viewer {
+    font-size: 14px !important;
   }
   
   .sd-progress-buttons__button {
-    margin-right: 0 !important;
-    margin-bottom: 0.5rem !important;
+    width: 28px !important;
+    height: 28px !important;
+    margin-right: 12px !important;
   }
   
-  .sv-body {
-    padding: 2rem 1rem !important;
-  }
-  
-  .sv-navigation {
-    padding: 1rem !important;
+  .sd-progress-buttons__connector {
+    left: 14px !important;
+    top: 28px !important;
   }
 }
 
-@media (max-width: 768px) {
-  .sv-header {
-    padding: 1.5rem 1rem !important;
-  }
-  
-  .sv-header .sv-title {
-    font-size: 1.5rem !important;
-  }
-  
-  .sv-body {
-    padding: 1rem !important;
-  }
-  
-  .sv-question {
-    padding: 0 !important;
-  }
-  
-  .sv-navigation {
-    padding: 1rem !important;
-    flex-direction: column !important;
-    gap: 1rem !important;
-  }
-  
-  .sv-btn {
-    width: 100% !important;
-  }
-}
-
-/* Animation for smooth transitions */
+/* Optional: Add smooth transitions */
 .sd-progress-buttons__button,
-.sd-progress-buttons__page-title .sv-string-viewer,
-.sv-question {
+.sd-progress-buttons__page-title .sv-string-viewer {
   transition: all 0.3s ease !important;
 }
 
-/* Focus states for accessibility */
-.sd-progress-buttons__button:focus,
-.sv-text:focus,
-.sv-comment textarea:focus,
-.sv-dropdown select:focus,
-.sv-btn:focus {
-  outline: 2px solid #059669 !important;
-  outline-offset: 2px !important;
+/* Optional: Add hover effects */
+.sd-progress-buttons__list li:hover .sd-progress-buttons__button {
+  transform: scale(1.05) !important;
 }
 
-/* Loading state */
-.sv-progress--loading {
-  opacity: 0.7 !important;
-  pointer-events: none !important;
+.sd-progress-buttons__list li:hover .sd-progress-buttons__page-title .sv-string-viewer {
+  color: #2563eb !important;
 }
 
-/* Hide default progress bar */
-.sv-progress {
-  display: none !important;
+
+.sd-header__text .sd-title .sv-string-viewer {
+  color: #2563eb !important;
+  font-size: 28px !important;
+  font-weight: bold !important;
+} 
+
+.sd-body.sd-body--static {
+  margin-top: -370px !important;
 }
 
-/* Ensure proper spacing for form elements */
-.sv-question__content {
-  margin-top: 0 !important;
-}
-
-/* Style for conditional questions */
-.sv-question--invisible {
-  display: none !important;
+.sd-btn.sd-navigation__next-btn{
+    color : #2563eb !important;
 }
