@@ -8,7 +8,7 @@ const surveyJson = {
   "title": "Medication Safety Incident Report",
   "description": "Please provide detailed information about the medication incident or near miss event",
   "logoPosition": "right",
-  "showProgressBar": "top",
+  "showProgressBar": "off",
   "progressBarType": "buttons",
   "showQuestionNumbers": "off",
   "requiredText": "*",
