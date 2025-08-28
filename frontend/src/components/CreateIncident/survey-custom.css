@@ -1,4 +1,4 @@
-/* Survey.js Custom Styling - Professional Medical Form Design */
+/* Survey.js Custom Styling - Clean Medical Form Design */
 
 /* Import Survey.js default styles first */
 @import 'survey-core/survey-core.css';
@@ -8,62 +8,59 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
   background-color: #f8fafc !important;
   min-height: 100vh !important;
-  padding: 2rem !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 /* Main survey container */
 .sv-container-modern {
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  background: white !important;
-  border-radius: 12px !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
-  overflow: hidden !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  display: flex !important;
+  min-height: 100vh !important;
 }
 
 /* Header styling */
 .sv-header {
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
-  color: white !important;
+  background: white !important;
+  color: #1f2937 !important;
   padding: 2rem !important;
-  text-align: center !important;
-  border-bottom: none !important;
+  text-align: left !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  margin: 0 !important;
+  width: 100% !important;
 }
 
 .sv-header .sv-title {
   font-size: 2rem !important;
   font-weight: 700 !important;
-  margin: 0 !important;
-  color: white !important;
+  margin: 0 0 0.5rem 0 !important;
+  color: #059669 !important;
 }
 
 .sv-header .sv-description {
-  font-size: 1.1rem !important;
-  opacity: 0.9 !important;
-  margin-top: 0.5rem !important;
-}
-
-/* Progress bar container - positioned at top */
-.sv-progress {
-  background: white !important;
-  border-bottom: 1px solid #e5e7eb !important;
-  padding: 0 !important;
+  font-size: 1rem !important;
+  color: #6b7280 !important;
   margin: 0 !important;
 }
 
-/* Vertical Progress Bar - Left Side Layout */
+/* Progress bar container - Left sidebar */
 .sd-progress-buttons__container {
   position: fixed !important;
-  left: 2rem !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  width: 280px !important;
-  height: auto !important;
+  left: 0 !important;
+  top: 0 !important;
+  width: 300px !important;
+  height: 100vh !important;
   background: white !important;
-  border-radius: 12px !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
-  padding: 1.5rem !important;
+  border-right: 1px solid #e5e7eb !important;
+  padding: 2rem 1.5rem !important;
   z-index: 1000 !important;
+  overflow-y: auto !important;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05) !important;
 }
 
 /* Hide horizontal navigation buttons */
@@ -88,6 +85,7 @@
   margin: 0 !important;
   list-style: none !important;
   gap: 0 !important;
+  counter-reset: step-counter !important;
 }
 
 /* Individual list elements */
@@ -98,8 +96,9 @@
   position: relative !important;
   width: 100% !important;
   margin: 0 !important;
-  padding: 0 0 1.5rem 0 !important;
+  padding: 0 0 2rem 0 !important;
   min-height: 60px !important;
+  counter-increment: step-counter !important;
 }
 
 /* Remove padding from last item */
@@ -118,7 +117,7 @@
   align-items: center !important;
   justify-content: center !important;
   position: relative !important;
-  color: #6b7280 !important;
+  color: #9ca3af !important;
   transition: all 0.3s ease !important;
   flex-shrink: 0 !important;
   margin-right: 1rem !important;
@@ -130,17 +129,16 @@
 
 /* Current step styling */
 .sd-progress-buttons__list-element--current .sd-progress-buttons__button {
-  background: #2563eb !important;
-  border-color: #2563eb !important;
+  background: #059669 !important;
+  border-color: #059669 !important;
   color: white !important;
-  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2) !important;
-  transform: scale(1.1) !important;
+  box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.2) !important;
 }
 
 /* Completed steps styling */
 .sd-progress-buttons__list-element--completed .sd-progress-buttons__button {
-  background: #10b981 !important;
-  border-color: #10b981 !important;
+  background: #059669 !important;
+  border-color: #059669 !important;
   color: white !important;
 }
 
@@ -152,15 +150,6 @@
   font-weight: 600 !important;
   font-size: 14px !important;
   line-height: 1 !important;
-}
-
-/* Counter initialization */
-.sd-progress-buttons__list {
-  counter-reset: step-counter !important;
-}
-
-.sd-progress-buttons__list li {
-  counter-increment: step-counter !important;
 }
 
 /* Hide all button content including default elements */
@@ -188,12 +177,12 @@
 
 /* Current step connector styling */
 .sd-progress-buttons__list-element--current .sd-progress-buttons__connector {
-  background-color: #2563eb !important;
+  background-color: #059669 !important;
 }
 
 /* Completed step connector styling */
 .sd-progress-buttons__list-element--completed .sd-progress-buttons__connector {
-  background-color: #10b981 !important;
+  background-color: #059669 !important;
 }
 
 /* Step titles */
@@ -216,13 +205,13 @@
 
 /* Current step title styling */
 .sd-progress-buttons__list-element--current .sd-progress-buttons__page-title .sv-string-viewer {
-  color: #2563eb !important;
+  color: #059669 !important;
   font-weight: 600 !important;
 }
 
 /* Completed step title styling */
 .sd-progress-buttons__list-element--completed .sd-progress-buttons__page-title .sv-string-viewer {
-  color: #10b981 !important;
+  color: #059669 !important;
   font-weight: 500 !important;
 }
 
@@ -233,35 +222,60 @@
 
 /* Main content area adjustments */
 .sv-components-column.sv-components-container-center {
-  margin-left: 320px !important;
-  padding: 2rem !important;
-  max-width: calc(100% - 320px) !important;
+  margin-left: 300px !important;
+  padding: 0 !important;
+  max-width: calc(100% - 300px) !important;
+  min-height: 100vh !important;
+  background: white !important;
 }
 
 /* Body content styling */
 .sv-body {
-  padding: 2rem !important;
+  padding: 3rem !important;
   background: white !important;
+  min-height: calc(100vh - 140px) !important;
 }
 
 /* Page styling */
 .sv-page {
+  margin-bottom: 2rem !important;
+  max-width: 800px !important;
+}
+
+/* Page title styling */
+.sv-page .sv-page__title {
+  font-size: 1.875rem !important;
+  font-weight: 700 !important;
+  color: #1f2937 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.sv-page .sv-page__description {
+  font-size: 1rem !important;
+  color: #6b7280 !important;
   margin-bottom: 2rem !important;
 }
 
 /* Question styling */
 .sv-question {
   margin-bottom: 2rem !important;
-  padding: 1.5rem !important;
-  background: #f8fafc !important;
-  border-radius: 8px !important;
-  border: 1px solid #e5e7eb !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+  border: none !important;
 }
 
 .sv-question__title {
-  font-size: 1.1rem !important;
+  font-size: 1rem !important;
   font-weight: 600 !important;
   color: #1f2937 !important;
+  margin-bottom: 0.5rem !important;
+  line-height: 1.5 !important;
+}
+
+.sv-question__description {
+  font-size: 0.875rem !important;
+  color: #6b7280 !important;
   margin-bottom: 1rem !important;
   line-height: 1.5 !important;
 }
@@ -277,14 +291,21 @@
   font-size: 1rem !important;
   transition: all 0.2s ease !important;
   background: white !important;
+  font-family: inherit !important;
 }
 
 .sv-text:focus,
 .sv-comment textarea:focus,
 .sv-dropdown select:focus {
   outline: none !important;
-  border-color: #2563eb !important;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
+  border-color: #059669 !important;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1) !important;
+}
+
+/* Textarea specific styling */
+.sv-comment textarea {
+  min-height: 120px !important;
+  resize: vertical !important;
 }
 
 /* Checkbox and radio styling */
@@ -297,14 +318,24 @@
 .sv-radiogroup__item {
   margin-bottom: 0.75rem !important;
   display: flex !important;
-  align-items: center !important;
+  align-items: flex-start !important;
+  padding: 0.5rem !important;
+  border-radius: 6px !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.sv-checkbox__item:hover,
+.sv-radiogroup__item:hover {
+  background-color: #f9fafb !important;
 }
 
 .sv-checkbox__item input,
 .sv-radiogroup__item input {
   margin-right: 0.75rem !important;
+  margin-top: 0.125rem !important;
   width: 1.25rem !important;
   height: 1.25rem !important;
+  accent-color: #059669 !important;
 }
 
 .sv-checkbox__item label,
@@ -313,12 +344,13 @@
   color: #374151 !important;
   cursor: pointer !important;
   line-height: 1.5 !important;
+  flex: 1 !important;
 }
 
 /* Navigation buttons */
 .sv-navigation {
-  padding: 2rem !important;
-  background: #f8fafc !important;
+  padding: 2rem 3rem !important;
+  background: white !important;
   border-top: 1px solid #e5e7eb !important;
   display: flex !important;
   justify-content: space-between !important;
@@ -333,26 +365,28 @@
   transition: all 0.2s ease !important;
   border: none !important;
   cursor: pointer !important;
+  font-family: inherit !important;
 }
 
 .sv-navigation__prev-btn {
-  background: #6b7280 !important;
-  color: white !important;
+  background: #f3f4f6 !important;
+  color: #374151 !important;
+  border: 1px solid #d1d5db !important;
 }
 
 .sv-navigation__prev-btn:hover {
-  background: #4b5563 !important;
+  background: #e5e7eb !important;
 }
 
 .sv-navigation__next-btn,
 .sv-navigation__complete-btn {
-  background: #2563eb !important;
+  background: #059669 !important;
   color: white !important;
 }
 
 .sv-navigation__next-btn:hover,
 .sv-navigation__complete-btn:hover {
-  background: #1d4ed8 !important;
+  background: #047857 !important;
 }
 
 /* Error styling */
@@ -368,6 +402,41 @@
   margin-left: 0.25rem !important;
 }
 
+/* Date input styling */
+.sv-date input {
+  width: 100% !important;
+  padding: 0.75rem !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 6px !important;
+  font-size: 1rem !important;
+  transition: all 0.2s ease !important;
+  background: white !important;
+  font-family: inherit !important;
+}
+
+.sv-date input:focus {
+  outline: none !important;
+  border-color: #059669 !important;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1) !important;
+}
+
+/* Success state */
+.sv-completedpage {
+  text-align: center !important;
+  padding: 3rem !important;
+  background: #f0fdf4 !important;
+  border-radius: 8px !important;
+  border: 1px solid #bbf7d0 !important;
+  max-width: 600px !important;
+  margin: 2rem auto !important;
+}
+
+.sv-completedpage h3 {
+  color: #166534 !important;
+  font-size: 1.5rem !important;
+  margin-bottom: 1rem !important;
+}
+
 /* Responsive design */
 @media (max-width: 1024px) {
   .sd-progress-buttons__container {
@@ -376,7 +445,11 @@
     top: auto !important;
     transform: none !important;
     width: 100% !important;
-    margin-bottom: 2rem !important;
+    height: auto !important;
+    margin-bottom: 0 !important;
+    padding: 1rem !important;
+    border-right: none !important;
+    border-bottom: 1px solid #e5e7eb !important;
   }
   
   .sv-components-column.sv-components-container-center {
@@ -388,14 +461,16 @@
     flex-direction: row !important;
     overflow-x: auto !important;
     padding-bottom: 1rem !important;
+    gap: 1rem !important;
   }
   
   .sd-progress-buttons__list li {
     flex-direction: column !important;
     min-width: 120px !important;
     text-align: center !important;
-    padding-right: 1rem !important;
+    padding-right: 0 !important;
     padding-bottom: 0 !important;
+    flex-shrink: 0 !important;
   }
   
   .sd-progress-buttons__connector {
@@ -410,15 +485,19 @@
     margin-right: 0 !important;
     margin-bottom: 0.5rem !important;
   }
+  
+  .sv-body {
+    padding: 2rem 1rem !important;
+  }
+  
+  .sv-navigation {
+    padding: 1rem !important;
+  }
 }
 
 @media (max-width: 768px) {
-  .sv-root {
-    padding: 1rem !important;
-  }
-  
   .sv-header {
-    padding: 1.5rem !important;
+    padding: 1.5rem 1rem !important;
   }
   
   .sv-header .sv-title {
@@ -430,7 +509,7 @@
   }
   
   .sv-question {
-    padding: 1rem !important;
+    padding: 0 !important;
   }
   
   .sv-navigation {
@@ -451,22 +530,13 @@
   transition: all 0.3s ease !important;
 }
 
-/* Hover effects */
-.sd-progress-buttons__list li:hover .sd-progress-buttons__button {
-  transform: scale(1.05) !important;
-}
-
-.sd-progress-buttons__list li:hover .sd-progress-buttons__page-title .sv-string-viewer {
-  color: #2563eb !important;
-}
-
 /* Focus states for accessibility */
 .sd-progress-buttons__button:focus,
 .sv-text:focus,
 .sv-comment textarea:focus,
 .sv-dropdown select:focus,
 .sv-btn:focus {
-  outline: 2px solid #2563eb !important;
+  outline: 2px solid #059669 !important;
   outline-offset: 2px !important;
 }
 
@@ -476,27 +546,17 @@
   pointer-events: none !important;
 }
 
-/* Custom medical form styling */
-.medical-form-section {
-  border-left: 4px solid #2563eb !important;
-  padding-left: 1rem !important;
+/* Hide default progress bar */
+.sv-progress {
+  display: none !important;
 }
 
-.medical-form-section .sv-question__title {
-  color: #2563eb !important;
+/* Ensure proper spacing for form elements */
+.sv-question__content {
+  margin-top: 0 !important;
 }
 
-/* Success state */
-.sv-completedpage {
-  text-align: center !important;
-  padding: 3rem !important;
-  background: #f0fdf4 !important;
-  border-radius: 8px !important;
-  border: 1px solid #bbf7d0 !important;
-}
-
-.sv-completedpage h3 {
-  color: #166534 !important;
-  font-size: 1.5rem !important;
-  margin-bottom: 1rem !important;
+/* Style for conditional questions */
+.sv-question--invisible {
+  display: none !important;
 }

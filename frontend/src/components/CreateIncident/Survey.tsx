@@ -2,14 +2,13 @@ import 'survey-core/survey-core.css';
 import './survey-custom.css';
 import { Model } from 'survey-core';
 import { useNavigate } from 'react-router-dom';
-
 import { Survey } from 'survey-react-ui';
 
 const surveyJson = {
   "title": "Medication Safety Incident Report",
   "description": "Please provide detailed information about the medication incident or near miss event",
   "logoPosition": "right",
-  "showProgressBar": "top",
+  "showProgressBar": "off",
   "progressBarType": "buttons",
   "showQuestionNumbers": "off",
   "requiredText": "*",
@@ -66,199 +65,9 @@ const surveyJson = {
     },
     {
       "name": "page2",
-      "title": "Patient(s) Details",
-      "description": "Provide patient information (use anonymous identifiers where possible)",
+      "title": "Event Details", 
+      "description": "Provide additional details about the medication event",
       "elements": [
-        {
-          "type": "text",
-          "name": "question4",
-          "title": "Unique ID (External Reference)",
-          "description": "Patient identifier or case reference number",
-          "isRequired": true,
-          "placeholder": "Enter patient ID or reference number"
-        },
-        {
-          "type": "date",
-          "name": "question5",
-          "title": "Date of Birth",
-          "description": "Patient's date of birth (for age calculation)",
-          "isRequired": true
-        },
-        {
-          "type": "radiogroup",
-          "name": "question6",
-          "title": "Gender",
-          "isRequired": true,
-          "choices": [
-            {
-              "value": "Item 1",
-              "text": "Female"
-            },
-            {
-              "value": "Item 2",
-              "text": "Male"
-            },
-            {
-              "value": "Item 3",
-              "text": "Other"
-            },
-            {
-              "value": "Item 4",
-              "text": "Prefer not to say"
-            }
-          ]
-        },
-        {
-          "type": "text",
-          "name": "question7",
-          "title": "Transaction/Prescription Number(s) (Tx/Rx #'s)",
-          "description": "Enter relevant prescription or transaction numbers",
-          "placeholder": "Rx123456, Tx789012"
-        },
-        {
-          "type": "radiogroup",
-          "name": "question8",
-          "title": "Was a LEOI form submitted?",
-          "description": "Learning from Excellence, Occurrence and Incident form",
-          "isRequired": true,
-          "choices": [
-            "Yes",
-            "No",
-            "Not applicable"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "page3",
-      "title": "WHAT Happened (Event Category/Incident Type)",
-      "description": "Categorize the type of medication event that occurred",
-      "elements": [
-        {
-          "type": "checkbox",
-          "name": "question9",
-          "title": "What happened? (select all that apply)",
-          "isRequired": true,
-          "choices": [
-            {
-              "value": "Item 1",
-              "text": "Administration time/timing/hour of administration (HOA) incorrect"
-            },
-            {
-              "value": "Item 2",
-              "text": "Allergy/adverse drug reaction (ADR)/adverse event following immunization (AEFI)"
-            },
-            {
-              "value": "Item 3",
-              "text": "Wrong medication dispensed"
-            },
-            {
-              "value": "Item 4",
-              "text": "Wrong dose administered"
-            },
-            {
-              "value": "Item 5",
-              "text": "Wrong patient received medication"
-            },
-            {
-              "value": "Item 6",
-              "text": "Wrong route of administration"
-            },
-            {
-              "value": "Item 7",
-              "text": "Medication omission"
-            },
-            {
-              "value": "Item 8",
-              "text": "Prescribing error"
-            },
-            {
-              "value": "Item 9",
-              "text": "Other (please specify in comments)"
-            }
-          ]
-        },
-        {
-          "type": "checkbox",
-          "name": "question10",
-          "visibleIf": "{question9} allof ['Item 1']",
-          "title": "Administration time/timing/hour of administration (HOA) incorrect",
-          "description": "Specify the type of timing error",
-          "isRequired": true,
-          "choices": [
-            {
-              "value": "Item 1",
-              "text": "Hour of administration too early"
-            },
-            {
-              "value": "Item 2",
-              "text": "Hour of administration too late"
-            },
-            {
-              "value": "Item 3",
-              "text": "Hour of administration both too early and too late"
-            },
-            {
-              "value": "Item 4",
-              "text": "Timing instructions not followed (e.g., take separate from other meds, within 30 mins)"
-            }
-          ]
-        },
-        {
-          "type": "comment",
-          "name": "additional_details",
-          "title": "Additional details about the event",
-          "description": "Provide any additional context or details about what happened",
-          "rows": 3,
-          "placeholder": "Any additional information that would help understand this event..."
-        }
-      ]
-    },
-    {
-      "name": "page4",
-      "title": "Stages Involved",
-      "description": "Identify which stages of the medication process were involved",
-      "elements": [
-        {
-          "type": "checkbox",
-          "name": "stages_involved",
-          "title": "Which stages of the medication process were involved? (select all that apply)",
-          "isRequired": true,
-          "choices": [
-            {
-              "value": "Item 1",
-              "text": "Prescribing"
-            },
-            {
-              "value": "Item 2",
-              "text": "Transcribing"
-            },
-            {
-              "value": "Item 3",
-              "text": "Dispensing"
-            },
-            {
-              "value": "Item 4",
-              "text": "Administration"
-            },
-            {
-              "value": "Item 5",
-              "text": "Monitoring"
-            },
-            {
-              "value": "Item 6",
-              "text": "Documentation"
-            }
-          ]
-        },
-        {
-          "type": "text",
-          "name": "medication_name",
-          "title": "Medication Name",
-          "description": "Generic or brand name of the medication involved",
-          "isRequired": true,
-          "placeholder": "Enter medication name"
-        },
         {
           "type": "dropdown",
           "name": "medication_class",
@@ -278,14 +87,15 @@ const surveyJson = {
             "Immunosuppressants",
             "Other"
           ]
-        }
-      ]
-    },
-    {
-      "name": "page5",
-      "title": "Risk & Harm Details",
-      "description": "Assess the risk level and any harm that occurred",
-      "elements": [
+        },
+        {
+          "type": "text",
+          "name": "medication_name",
+          "title": "Medication Name",
+          "description": "Generic or brand name of the medication involved",
+          "isRequired": true,
+          "placeholder": "Enter medication name"
+        },
         {
           "type": "radiogroup",
           "name": "harm_level",
@@ -305,7 +115,7 @@ const surveyJson = {
               "text": "Moderate harm - Temporary harm requiring intervention"
             },
             {
-              "value": "Item 4", 
+              "value": "Item 4",
               "text": "Severe harm - Permanent harm or life-threatening situation"
             },
             {
@@ -313,6 +123,29 @@ const surveyJson = {
               "text": "Death - Event contributed to patient death"
             }
           ]
+        },
+        {
+          "type": "comment",
+          "name": "contributing_factors",
+          "title": "Contributing Factors",
+          "description": "What factors contributed to this event? (e.g., workload, communication, system issues)",
+          "rows": 3,
+          "placeholder": "Describe factors that may have contributed to this event..."
+        }
+      ]
+    },
+    {
+      "name": "page3",
+      "title": "Review & Submit",
+      "description": "Review your information and submit the report",
+      "elements": [
+        {
+          "type": "comment", 
+          "name": "immediate_actions",
+          "title": "Immediate Actions Taken",
+          "description": "What immediate actions were taken after the event was discovered?",
+          "rows": 3,
+          "placeholder": "Describe any immediate interventions or actions taken..."
         },
         {
           "type": "radiogroup",
@@ -328,22 +161,6 @@ const surveyJson = {
           ]
         },
         {
-          "type": "comment",
-          "name": "contributing_factors",
-          "title": "Contributing Factors",
-          "description": "What factors contributed to this event? (e.g., workload, communication, system issues)",
-          "rows": 3,
-          "placeholder": "Describe factors that may have contributed to this event..."
-        },
-        {
-          "type": "comment", 
-          "name": "immediate_actions",
-          "title": "Immediate Actions Taken",
-          "description": "What immediate actions were taken after the event was discovered?",
-          "rows": 3,
-          "placeholder": "Describe any immediate interventions or actions taken..."
-        },
-        {
           "type": "text",
           "name": "reporter_name",
           "title": "Reporter Name and Title",
@@ -352,7 +169,7 @@ const surveyJson = {
           "placeholder": "e.g., John Smith, RN"
         }
       ]
-    }
+    },
   ]
 };
 
@@ -362,7 +179,7 @@ export default function SurveyComponent() {
   const survey = new Model(surveyJson);
 
   // Configure survey settings
-  survey.showProgressBar = "top";
+  survey.showProgressBar = "off";
   survey.progressBarType = "buttons";
   survey.showQuestionNumbers = "off";
   survey.requiredText = "*";
@@ -381,7 +198,7 @@ export default function SurveyComponent() {
   });
 
   return (
-    <div className="survey-container">
+    <div className="survey-container" style={{ minHeight: '100vh', background: '#f8fafc' }}>
       <Survey model={survey} />
     </div>
   );
